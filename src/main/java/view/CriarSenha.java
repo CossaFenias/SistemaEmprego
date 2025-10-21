@@ -1,14 +1,21 @@
 package view;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.net.URL;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class CriarSenha extends JFrame {
     // Declaração dos componentes
@@ -161,7 +168,7 @@ public class CriarSenha extends JFrame {
 
     private void setupListeners() {
         // Listener para mostrar/ocultar senhas
-        checkMostrarSenha.addActionListener(e -> {
+        checkMostrarSenha.addActionListener(_ -> {
             if (checkMostrarSenha.isSelected()) {
                 txtNovaSenha.setEchoChar((char) 0);
                 txtConfirmarSenha.setEchoChar((char) 0);

@@ -84,9 +84,9 @@ public class PainelEmpresaPrincipal extends JFrame {
     }
 
     private void setupListeners() {
-        minhaEmpresaButton.addActionListener(e -> showCard("Minha Empresa", minhaEmpresaButton));
-        publicarVagaButton.addActionListener(e -> showCard("Publicar Vaga", publicarVagaButton));
-        minhasVagasButton.addActionListener(e -> showCard("Minhas Vagas", minhasVagasButton));
+        minhaEmpresaButton.addActionListener(_ -> showCard("Minha Empresa", minhaEmpresaButton));
+        publicarVagaButton.addActionListener(_ -> showCard("Publicar Vaga", publicarVagaButton));
+        minhasVagasButton.addActionListener(_ -> showCard("Minhas Vagas", minhasVagasButton));
     }
 
     private JButton createNavButton(String text, int width) {
