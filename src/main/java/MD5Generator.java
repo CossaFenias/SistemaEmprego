@@ -6,7 +6,7 @@ public class MD5Generator {
 
     public static String generateMD5(String input) {
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
+            MessageDigest md = MessageDigest.getInstance("sha-256");
 
             byte[] messageDigest = md.digest(input.getBytes());
 
@@ -25,7 +25,7 @@ public class MD5Generator {
     }
 
     public static void main(String[] args) {
-        String texto = "afa9aab8f9fb27b59fa0239aca3c4c6e";
+        String texto = "0000";
         String hashMD5 = generateMD5(texto);
         if (generateMD5(texto).equals(generateMD5(texto))){
             System.out.println("Texto: " + texto);
