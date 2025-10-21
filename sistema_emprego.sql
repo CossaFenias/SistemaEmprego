@@ -389,7 +389,6 @@ BEGIN
 
     INSERT INTO Identificacao(id_candidato, numero_bi, data_emissao_bi, nuit)
     VALUES (v_id_candidato, p_numero_bi, p_data_emissao_bi, p_nuit);
-    COMMIT;
 END;
 $$;
 
@@ -426,7 +425,7 @@ BEGIN
 
     INSERT INTO EmpresaEndereco(id_empresa, id_endereco)
     VALUES (v_id_empresa, v_id_endereco);
-    COMMIT;
+    
 END;
 $$;
 
@@ -462,7 +461,7 @@ BEGIN
 
     INSERT INTO ClienteEndereco(id_cliente, id_endereco)
     VALUES (v_id_cliente, v_id_endereco);
-    COMMIT;
+    
 END;
 $$;
 
@@ -495,14 +494,14 @@ BEGIN
 
     INSERT INTO VagaLocalTrabalho(id_vaga, id_endereco)
     VALUES (v_id_vaga, v_id_endereco);
-    COMMIT;
+    
 END;
 $$;
 
 CREATE OR REPLACE PROCEDURE inserir_formacao_academica(
     p_id_candidato INT,
     p_curso VARCHAR,
-    p_nivel VARCHAR
+    p_nivel VARCHAR,
     p_instituicao VARCHAR,
     p_ano_formacao INT
 )
@@ -511,7 +510,6 @@ AS $$
 BEGIN
     INSERT INTO FormacaoAcademica(curso, nivel, instituicao, ano_formacao, id_candidato)
     VALUES (p_curso, p_nivel, p_instituicao, p_ano_formacao, p_id_candidato);
-    COMMIT;
 END;
 $$;
 
@@ -528,7 +526,7 @@ AS $$
 BEGIN
     INSERT INTO ExperienciaProfissional(cargo, instituicao_empresa, data_inicio, data_fim, descricao, id_candidato)
     VALUES (p_cargo, p_instituicao, p_data_inicio, p_data_fim, p_descricao, p_id_candidato);
-    COMMIT;
+    
 END;
 $$;
 
@@ -545,7 +543,7 @@ BEGIN
         INSERT INTO CandidatoServico(id_candidato, id_servico)
         VALUES (p_id_candidato, p_id_servico);
     END IF;
-    COMMIT;
+    
 END;
 $$;
 
@@ -562,7 +560,7 @@ BEGIN
         INSERT INTO EmpresaServico(id_empresa, id_servico)
         VALUES (p_id_empresa, p_id_servico);
     END IF;
-    COMMIT;
+    
 END;
 $$;
 
@@ -579,7 +577,7 @@ BEGIN
         INSERT INTO ClienteServico(id_cliente, id_servico)
         VALUES (p_id_cliente, p_id_servico);
     END IF;
-    COMMIT;
+    
 END;
 $$;
 
@@ -594,10 +592,9 @@ BEGIN
     DELETE FROM ExperienciaProfissional WHERE id_candidato = p_id_candidato;
     DELETE FROM Filiacao WHERE id_candidato = p_id_candidato;
     DELETE FROM Identificacao WHERE id_candidato = p_id_candidato;
-    DELETE FROM EnderecoCandidato WHERE id_candidato = p_id_candidato;
-    DELETE FROM TelefoneCandidato WHERE id_candidato = p_id_candidato;
+    DELETE FROM CandidatoEndereco WHERE id_candidato = p_id_candidato;
+    DELETE FROM CandidatoTelefone WHERE id_candidato = p_id_candidato;
     DELETE FROM Candidato WHERE id_candidato = p_id_candidato;
-    COMMIT;
 END;
 $$;
 
@@ -798,7 +795,11 @@ RETURNS TRIGGER
 LANGUAGE plpgsql
 AS $$
 BEGIN
-    IF EXISTS (SELECT 1 FROM Empresa WHERE email = NEW.email AND id_empresa != COALESCE(NEW.id_empresa, 0)) THEN
+    IF EXISTS (
+        SELECT 1 FROM Empresa
+        WHERE email = NEW.email
+        AND id_empresa <> COALESCE(NEW.id_empresa, 0)
+    ) THEN
         RAISE EXCEPTION 'Email já existe em outra empresa';
     END IF;
     RETURN NEW;
