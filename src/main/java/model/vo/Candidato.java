@@ -12,6 +12,8 @@ public class Candidato {
     private String nacionalidade;
     private String naturalidade;
 
+    public Candidato() {}
+
     public Candidato(int idCandidato, String apelido, String nome, char genero, LocalDate dataNascimento, String email, String nacionalidade, String naturalidade) {
         this.idCandidato = idCandidato;
         this.apelido = apelido;

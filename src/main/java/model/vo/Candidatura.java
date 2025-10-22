@@ -9,6 +9,8 @@ public class Candidatura {
     private LocalDate dataCandidatura;
     private String status;
 
+    public Candidatura() {}
+
     public Candidatura(int idCandidatura, int idCandidato, int idVaga, LocalDate dataCandidatura, String status) {
         this.idCandidatura = idCandidatura;
         this.idCandidato = idCandidato;

@@ -6,6 +6,8 @@ public class Empresa {
     private String sector;
     private String email;
 
+    public Empresa() {}
+
     public Empresa(int idEmpresa, String nome, String sector, String email) {
         this.idEmpresa = idEmpresa;
         this.nome = nome;

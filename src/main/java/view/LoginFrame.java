@@ -326,7 +326,7 @@ public class LoginFrame extends JFrame {
         return txtEmail;
     }
 
-    public JTextField getSenha() {
+    public JPasswordField getSenha() {
         return senha;
     }
 

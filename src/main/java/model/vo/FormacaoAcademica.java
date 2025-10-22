@@ -8,6 +8,8 @@ public class FormacaoAcademica {
     private int anoFormacao;
     private int idCandidato;
 
+    public FormacaoAcademica() {}
+
     public FormacaoAcademica(int idFormacao, String curso, String instituicao, String nivel, int anoFormacao, int idCandidato) {
         this.idFormacao = idFormacao;
         this.curso = curso;
