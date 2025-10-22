@@ -13,8 +13,8 @@ import model.vo.CandidatoServico;
 public class CandidatoServicoDAO {
     private final Connection connection;
 
-    public CandidatoServicoDAO(Connection connection) {
-        this.connection = connection;
+    public CandidatoServicoDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(CandidatoServico candidatoServico) throws SQLException {

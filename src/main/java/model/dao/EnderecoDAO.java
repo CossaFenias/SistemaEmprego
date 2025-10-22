@@ -8,8 +8,8 @@ import java.util.List;
 public class EnderecoDAO {
     private final Connection connection;
 
-    public EnderecoDAO(Connection connection) {
-        this.connection = connection;
+    public EnderecoDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(Endereco endereco) throws SQLException {

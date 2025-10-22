@@ -13,8 +13,8 @@ import model.vo.FormacaoAcademica;
 public class FormacaoAcademicaDAO {
     private final Connection connection;
 
-    public FormacaoAcademicaDAO(Connection connection) {
-        this.connection = connection;
+    public FormacaoAcademicaDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(FormacaoAcademica formacao) throws SQLException {

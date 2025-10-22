@@ -159,6 +159,42 @@ public class PainelCandidatoServicos extends JPanel {
         return button;
     }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public JPanel getContentPanel() {
+        return contentPanel;
+    }
+
+    public JPanel getFilterButtonsPanel() {
+        return filterButtonsPanel;
+    }
+
+    public JButton getTodosServicosButton() {
+        return todosServicosButton;
+    }
+
+    public JButton getServicosContratadosButton() {
+        return servicosContratadosButton;
+    }
+
+    public JButton getServicosDisponiveisButton() {
+        return servicosDisponiveisButton;
+    }
+
+    public JTable getServicosTable() {
+        return servicosTable;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public DefaultTableModel getTableModel() {
+        return tableModel;
+    }
+
     // REMOVER O MÉTODO main()
     // public static void main(String[] args) { ... }
 }

@@ -13,8 +13,8 @@ import model.vo.Empresa;
 public class EmpresaDAO {
     private final Connection connection;
 
-    public EmpresaDAO(Connection connection) {
-        this.connection = connection;
+    public EmpresaDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(Empresa empresa) throws SQLException {

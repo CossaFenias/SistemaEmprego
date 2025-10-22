@@ -13,8 +13,8 @@ import model.vo.Provincia;
 public class ProvinciaDAO {
     private final Connection connection;
 
-    public ProvinciaDAO(Connection connection) {
-        this.connection = connection;
+    public ProvinciaDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(Provincia provincia) throws SQLException {

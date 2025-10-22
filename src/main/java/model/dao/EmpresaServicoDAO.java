@@ -13,8 +13,8 @@ public class EmpresaServicoDAO {
 
     private final Connection connection;
 
-    public EmpresaServicoDAO(Connection connection) {
-        this.connection = connection;
+    public EmpresaServicoDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(EmpresaServico empresaServico) throws SQLException {

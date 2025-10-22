@@ -13,8 +13,8 @@ public class ClienteEnderecoDAO {
 
     private final Connection connection;
 
-    public ClienteEnderecoDAO(Connection connection) {
-        this.connection = connection;
+    public ClienteEnderecoDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(ClienteEndereco clienteEndereco) throws SQLException {

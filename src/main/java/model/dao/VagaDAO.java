@@ -8,8 +8,8 @@ import java.util.List;
 public class VagaDAO {
     private final Connection connection;
 
-    public VagaDAO(Connection connection) {
-        this.connection = connection;
+    public VagaDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(Vaga vaga) throws SQLException {

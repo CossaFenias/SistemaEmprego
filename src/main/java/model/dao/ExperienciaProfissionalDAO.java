@@ -8,8 +8,8 @@ import java.util.List;
 public class ExperienciaProfissionalDAO {
     private final Connection connection;
 
-    public ExperienciaProfissionalDAO(Connection connection) {
-        this.connection = connection;
+    public ExperienciaProfissionalDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(ExperienciaProfissional experiencia) throws SQLException {

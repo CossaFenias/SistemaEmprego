@@ -11,8 +11,8 @@ public class IdentificacaoDAO {
 
     private final Connection connection;
 
-    public IdentificacaoDAO(Connection connection) {
-        this.connection = connection;
+    public IdentificacaoDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(Identificacao identificacao) throws SQLException {

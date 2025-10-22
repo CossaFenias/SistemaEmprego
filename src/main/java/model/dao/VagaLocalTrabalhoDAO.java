@@ -13,8 +13,8 @@ public class VagaLocalTrabalhoDAO {
 
     private final Connection connection;
 
-    public VagaLocalTrabalhoDAO(Connection connection) {
-        this.connection = connection;
+    public VagaLocalTrabalhoDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(VagaLocalTrabalho vagaLocalTrabalho) throws SQLException {

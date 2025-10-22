@@ -13,8 +13,8 @@ import model.vo.Distrito;
 public class DistritoDAO {
     private final Connection connection;
 
-    public DistritoDAO(Connection connection) {
-        this.connection = connection;
+    public DistritoDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(Distrito distrito) throws SQLException {

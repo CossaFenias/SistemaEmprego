@@ -11,8 +11,8 @@ public class CandidatoEnderecoDAO {
 
     private final Connection connection;
 
-    public CandidatoEnderecoDAO(Connection connection) {
-        this.connection = connection;
+    public CandidatoEnderecoDAO() {
+        this.connection = ConexaoDAO.getConnection();
     }
 
     public void create(CandidatoEndereco candidatoEndereco) throws SQLException {
